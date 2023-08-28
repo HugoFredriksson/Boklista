@@ -40,6 +40,9 @@ async function getBooksFetch(){
 
     let response = await fetch(patch);
     console.log(response)
+    if (response.status === 500) {
+        alert("Internal Server Error");
+    }
 
     let json = response.json();
     return json;
