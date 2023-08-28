@@ -1,18 +1,20 @@
 //let myJson = '{"author": "Gud", "title","Bibeln":}';
 //let myObject = JSON.parse(myJson); 
-let books;
+//let books;
 let title; 
 //let author1;
 //let title2; 
+//
+//let Books={book:[
+  //  {"author":"Gud", "title":"Bibel"},
+   // {"author":"Allah", "title":"Koran"}
+//]}
 
-let Books={book:[
-    {"author":"Gud", "title":"Bibel"},
-    {"author":"Allah", "title":"Koran"}
-]}
-
-function init(){
+async function init(){
     books = document.getElementById("books");
-    for(element of Books.book){
+    let Books =  await getBooksFetch();
+    console.log(Books);
+    for(element of Books){
         console.log(element);
         createTableRow(element);
     }
@@ -31,6 +33,16 @@ function createTableRow(el){
 
     books.appendChild(tr)
     console.log(tr);
+}
+
+async function getBooksFetch(){
+    const patch = "https://localhost:7243/Book";
+
+    let response = await fetch(patch);
+    console.log(response)
+
+    let json = response.json();
+    return json;
 }
 
 

@@ -10,7 +10,7 @@ function init(){
 }
 window.onload = init;
 
-function addBook(){
+async function addBook(){
     let author = form.elements.author.value;
     let title = form.elements.title.value;
 
@@ -20,5 +20,23 @@ function addBook(){
         
     };
 
+
+    let status = await postBookFetch(json);
+    console.log(status);
     console.log(json);
 }
+
+async function postBookFetch(json) {
+    let path = "https://localhost:7243/Book";
+    const response = await fetch(path,{
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(json)
+    });
+    return response.status; 
+    console.log(response.status);
+}
+    
