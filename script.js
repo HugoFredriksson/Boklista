@@ -48,7 +48,6 @@ async function getBooksFetch(){
     return json;
 }
 
-
 /*title = document.getElementById("title")
 
 author1 = document.getElementById("author1");

@@ -28,6 +28,7 @@ body {
 header {
     grid-area: header;
     background-color: rgb(255, 255, 255);
+    
 }
 
 main {
@@ -51,6 +52,8 @@ footer {
     font-size: 2.5vh;
     text-align: left;
     margin: auto;
+    padding: 20px;
+    text-align: center;
 }
 
 nav a {
